@@ -1,69 +1,53 @@
-# React + TypeScript + Vite
+# Tarefas do Dia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação React com TypeScript para gerenciamento de tarefas diárias. Permite adicionar, listar, marcar como concluída e remover tarefas, com persistência local via `localStorage`.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Adicionar nova tarefa
+- Marcar tarefa como concluída
+- Remover tarefa
+- Persistência automática com localStorage
+- Estilização com styled-components
+- Tipagem com TypeScript
+- Estado global com Context API
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tecnologias Utilizadas
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- styled-components
+- Context API
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Instalação e Execução
+
+### Passo a passo
+
+```bash
+# Instale as dependências
+npm install
+
+# Inicie a aplicação
+npm run dev
+```
+Abra no navegador: http://localhost:5173
+
+## Estrutura do Projeto
+```
+src/
+├── App.tsx
+├── main.tsx
+├── types.ts
+├── contexts/
+│   └── TarefaContext.tsx
+├── components/
+│   ├── FormNovaTarefa.tsx
+│   └── ListaTarefas.tsx
+└── styles/
+    └── GlobalStyle.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
